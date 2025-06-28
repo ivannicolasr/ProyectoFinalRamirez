@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Mis mensajes{% endblock %}
+
+{% block content %}
+<h2>Bandeja de entrada</h2>
+
+<a href="{% url 'enviar_mensaje' %}">Enviar nuevo mensaje</a>
+
+{% if mensajes %}
+    <ul>
+    {% for mensaje in mensajes %}
+        <li {% if not mensaje.leido %}style="font-weight: bold;"{% endif %}>
+            <a href="{% url 'detalle_mensaje' mensaje.pk %}">
+                {{ mensaje.asunto }} — de {{ mensaje.emisor }} ({{ mensaje.fecha|date:"d/m/Y H:i" }})
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tenés mensajes aún.</p>
+{% endif %}
+{% endblock %}

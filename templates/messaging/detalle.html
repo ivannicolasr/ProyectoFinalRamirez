@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Mensaje{% endblock %}
+
+{% block content %}
+<h2>{{ mensaje.asunto }}</h2>
+
+<p><strong>De:</strong> {{ mensaje.emisor }}</p>
+<p><strong>Fecha:</strong> {{ mensaje.fecha|date:"d/m/Y H:i" }}</p>
+<p><strong>Contenido:</strong></p>
+<p>{{ mensaje.contenido }}</p>
+
+<a href="{% url 'bandeja' %}">Volver a la bandeja</a>
+{% endblock %}

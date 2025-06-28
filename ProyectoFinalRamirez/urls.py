@@ -27,7 +27,7 @@ urlpatterns = [
     path('about/', about_view, name='about'),
     path('accounts/', include('accounts.urls')),
     path('pages/', include('blog.urls')),
-    # path('messages/', include('messaging.urls')),
+    path('mensajes/', include('messaging.urls')),
 ]
 
 if settings.DEBUG:
